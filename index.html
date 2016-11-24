@@ -26,7 +26,7 @@
         var todoEntries = this.props.entries;
         
         function createTasks(item) {
-          return <li key={item.key}>{item.text}</li>
+          return <li className="list-group-item" key={item.key}>{item.text}</li>
         }
         
         var listItems = todoEntries.map(createTasks);
@@ -65,7 +65,10 @@
       },
       render: function() {
         return (
-          <div className="container col-sm-12 well">
+          <div className="container col-sm-12 jumbotron text-center">
+            <h1>Welcome to KirupaTodo</h1>
+            <br/>
+            <p>Start adding tasks below:</p>
             <div className="col-sm-12">
               <form onSubmit={this.addItem}>
                 <div className="col-sm-8">
@@ -76,7 +79,10 @@
                 </div>
               </form>
             </div>
-            <TodoItems className="col-sm-12" entries={this.state.items}/>
+            <div className="col-sm-12 list-group">
+              <TodoItems entries={this.state.items}/>
+            </div>
+            
           </div>  
           )
       }
